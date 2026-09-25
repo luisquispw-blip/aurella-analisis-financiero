@@ -1,0 +1,15 @@
+node_modules/
+frontend/node_modules/
+frontend/dist/
+# Datos reales de la empresa: NUNCA se suben al repositorio
+data/*
+!data/entrada/
+data/entrada/*
+!data/entrada/.gitkeep
+*.sqlite
+*.sqlite-*
+*.xlsx
+*.xls
+*.csv
+.env
+.claude/launch.json

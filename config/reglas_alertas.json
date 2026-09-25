@@ -1,0 +1,24 @@
+{
+  "_descripcion": "Valores iniciales de las reglas de alerta. Al iniciar por primera vez se copian a la base de datos; desde ahí se modifican en la pantalla 'Alertas > Reglas'. Ningún umbral es fijo en el código.",
+  "reglas": [
+    { "codigo": "BALANCE_DESCUADRE", "nombre": "Activo ≠ Pasivo + Patrimonio", "severidad": "critica", "parametro": "tolerancia_bs", "valor": 1, "activo": 1 },
+    { "codigo": "INVENTARIO_NEGATIVO", "nombre": "Inventario teórico negativo", "severidad": "critica", "parametro": "unidades", "valor": 0, "activo": 1 },
+    { "codigo": "DIFERENCIA_INVENTARIO", "nombre": "Diferencia de inventario (físico vs teórico)", "severidad": "critica", "parametro": "porcentaje_minimo", "valor": 2, "activo": 1 },
+    { "codigo": "LIQUIDEZ_INSUFICIENTE", "nombre": "Flujo neto de caja registrado negativo", "severidad": "critica", "parametro": "flujo_minimo_bs", "valor": 0, "activo": 1 },
+    { "codigo": "TRANSFERENCIA_SIN_CONTRAPARTE", "nombre": "Transferencia sin contraparte", "severidad": "critica", "parametro": "tolerancia_unidades", "valor": 0, "activo": 1 },
+    { "codigo": "CAIDA_VENTAS", "nombre": "Caída de ventas vs mes anterior", "severidad": "advertencia", "parametro": "porcentaje", "valor": 10, "activo": 1 },
+    { "codigo": "MARGEN_REDUCIDO", "nombre": "Margen bruto por debajo del mínimo", "severidad": "advertencia", "parametro": "margen_minimo_pct", "valor": 45, "activo": 1 },
+    { "codigo": "GASTOS_ELEVADOS", "nombre": "Gastos operativos elevados sobre ventas", "severidad": "advertencia", "parametro": "porcentaje_sobre_ventas", "valor": 40, "activo": 1 },
+    { "codigo": "GASTO_CRECIENTE", "nombre": "Categoría de gasto con crecimiento importante", "severidad": "advertencia", "parametro": "porcentaje", "valor": 30, "activo": 1 },
+    { "codigo": "GASTO_EXTRAORDINARIO", "nombre": "Gasto individual extraordinario", "severidad": "advertencia", "parametro": "monto_bs", "valor": 10000, "activo": 1 },
+    { "codigo": "COSTO_CRECIENTE", "nombre": "Incremento importante del costo sobre ventas", "severidad": "advertencia", "parametro": "puntos_porcentuales", "valor": 5, "activo": 1 },
+    { "codigo": "BAJA_ROTACION", "nombre": "Producto con baja rotación (unidades/mes)", "severidad": "advertencia", "parametro": "unidades_mes", "valor": 1, "activo": 1 },
+    { "codigo": "SOBRE_STOCK", "nombre": "Sobre-stock (meses de cobertura)", "severidad": "advertencia", "parametro": "meses_cobertura", "valor": 6, "activo": 1 },
+    { "codigo": "RIESGO_AGOTAMIENTO", "nombre": "Riesgo de agotamiento (meses de cobertura)", "severidad": "advertencia", "parametro": "meses_cobertura", "valor": 0.5, "activo": 1 },
+    { "codigo": "DESCUENTO_ELEVADO", "nombre": "Descuento implícito elevado", "severidad": "advertencia", "parametro": "porcentaje", "valor": 15, "activo": 1 },
+    { "codigo": "AUMENTO_VENTAS", "nombre": "Incremento de ventas vs mes anterior", "severidad": "positiva", "parametro": "porcentaje", "valor": 10, "activo": 1 },
+    { "codigo": "MEJORA_MARGEN", "nombre": "Mejora del margen operativo", "severidad": "positiva", "parametro": "puntos_porcentuales", "valor": 2, "activo": 1 },
+    { "codigo": "REDUCCION_GASTOS", "nombre": "Reducción de gastos operativos", "severidad": "positiva", "parametro": "porcentaje", "valor": 10, "activo": 1 },
+    { "codigo": "MAYOR_ROTACION", "nombre": "Mayor rotación (más unidades vendidas)", "severidad": "positiva", "parametro": "porcentaje", "valor": 10, "activo": 1 }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "_descripcion": "Sinónimos de encabezados para detectar columnas en archivos con estructuras distintas. Se comparan en MAYÚSCULAS sin tildes; basta que el encabezado contenga el sinónimo.",
+  "ventas": {
+    "producto": ["PRODUCTO", "ARTICULO", "DESCRIPCION", "ITEM", "NOMBRE"],
+    "cantidad": ["CANTIDAD VENDIDA", "CANTIDAD", "CANT", "UNIDADES", "QTY"],
+    "precio": ["PRECIO DE VENTA", "PRECIO UNITARIO", "PRECIO", "P/U", "PU"],
+    "total": ["TOTAL VENTA", "IMPORTE", "TOTAL", "MONTO", "SUBTOTAL"],
+    "tamano": ["TAMANO", "TAMAÑO", "ML", "PRESENTACION", "CAPACIDAD"],
+    "tipo_pago": ["TIPO DE PAGO", "FORMA DE PAGO", "MEDIO DE PAGO", "PAGO"],
+    "comprobante": ["COMPROBANTE", "FACTURA", "RECIBO", "NRO"],
+    "observaciones": ["OBSERVACIONES", "OBS", "NOTA", "COMENTARIO", "ORIGEN"],
+    "fecha": ["FECHA", "DIA"],
+    "descuento": ["DESCUENTO", "DSCTO"],
+    "devolucion": ["DEVOLUCION", "DEVUELTO"]
+  },
+  "gastos": {
+    "fecha": ["FECHA"],
+    "proveedor": ["PROVEEDOR", "BENEFICIARIO"],
+    "documento": ["NO.DE DOCUMENTO", "DOCUMENTO", "COMPROBANTE", "FACTURA", "NRO"],
+    "descripcion": ["DESCRIPCION", "DETALLE", "CONCEPTO", "GLOSA"],
+    "monto": ["TOTAL PAGADO", "IMPORTE", "MONTO", "VALOR", "TOTAL"],
+    "observacion": ["SALDO", "OBSERVACION", "NOTA"]
+  },
+  "costos": {
+    "articulo": ["ARTICULO", "PRODUCTO", "PRESENTACION", "ITEM"],
+    "costo": ["COSTO PROVEEDOR", "COSTO UNITARIO", "COSTO"],
+    "precio_publico": ["COSTO PUBLICO", "PRECIO PUBLICO", "PRECIO DE LISTA", "PVP"]
+  },
+  "catalogo": {
+    "nombre": ["NOMBRE", "PRODUCTO", "PERFUME"],
+    "marca": ["CASA", "MARCA", "FABRICANTE"],
+    "categoria": ["CATEGORIA", "LINEA", "GENERO"],
+    "codigo": ["CODIGO", "SKU", "COD"]
+  },
+  "inventario": {
+    "fecha": ["FECHA", "CORTE"],
+    "codigo": ["CODIGO", "SKU"],
+    "producto": ["PRODUCTO", "ARTICULO", "NOMBRE", "DESCRIPCION"],
+    "tamano": ["TAMANO", "ML", "PRESENTACION"],
+    "establecimiento": ["ESTABLECIMIENTO", "SUCURSAL", "TIENDA", "ALMACEN"],
+    "tipo": ["TIPO MOVIMIENTO", "MOVIMIENTO", "TIPO"],
+    "cantidad": ["CANTIDAD", "UNIDADES", "STOCK", "EXISTENCIA", "SALDO"],
+    "costo": ["COSTO UNITARIO", "COSTO"],
+    "destino": ["DESTINO", "HACIA"],
+    "origen": ["ORIGEN", "DESDE"],
+    "referencia": ["REFERENCIA", "GUIA", "DOCUMENTO", "NRO"]
+  },
+  "saldos": {
+    "fecha": ["FECHA", "CORTE", "PERIODO"],
+    "establecimiento": ["ESTABLECIMIENTO", "SUCURSAL", "TIENDA"],
+    "concepto": ["CONCEPTO", "CUENTA", "TIPO", "DETALLE"],
+    "monto": ["SALDO", "MONTO", "IMPORTE", "VALOR", "TOTAL"],
+    "tercero": ["CLIENTE", "PROVEEDOR", "ENTIDAD", "BANCO", "TERCERO"]
+  }
+}

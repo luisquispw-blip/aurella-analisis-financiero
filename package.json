@@ -1,0 +1,24 @@
+{
+  "name": "aurella-analisis-financiero",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GJCD28 SRL - AURELLA: agente de análisis financiero y económico",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node backend/server.ts",
+    "dev": "node --watch backend/server.ts",
+    "build": "npm --prefix frontend install --include=dev && npm --prefix frontend run build",
+    "test": "node --test --test-concurrency=1 \"tests/*.test.ts\"",
+    "import": "node backend/cli-import.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
+    "express": "^5.2.1",
+    "multer": "^2.4.0",
+    "pdfkit": "^0.20.2",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  }
+}

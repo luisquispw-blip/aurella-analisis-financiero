@@ -1,0 +1,12 @@
+node_modules
+frontend/node_modules
+frontend/dist
+data
+*.sqlite*
+*.xlsx
+*.xls
+*.csv
+.env
+.git
+.claude
+tests

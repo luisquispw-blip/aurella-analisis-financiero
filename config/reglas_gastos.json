@@ -1,0 +1,17 @@
+{
+  "_descripcion": "Reglas ordenadas de clasificación de egresos. Se evalúan en orden; gana la primera cuyo patrón (expresión regular) coincide con la descripción normalizada (MAYÚSCULAS, sin tildes). 'clase' define el tratamiento contable: gasto_operativo entra en la utilidad operativa; compra_mercaderia es pago de mercadería (flujo de caja, NO gasto); inversion_activo es activo fijo/garantía/remodelación (NO gasto del periodo). Cualquier clasificación puede corregirse manualmente desde la aplicación.",
+  "reglas": [
+    { "id": "COMPRA_PERFUMES", "patron": "PERFUME|DIFUSOR|\\bP0{2,}\\d+|FACTURA P\\d+|MERCADERIA|PROVEEDOR", "clase": "compra_mercaderia", "categoria": "Compra de mercadería" },
+    { "id": "ACTIVO_GARANTIA", "patron": "GARANTIA", "clase": "inversion_activo", "categoria": "Depósito en garantía" },
+    { "id": "ACTIVO_FIJO", "patron": "MUEBLE|LETRERO|COMPUTADORA|AIRE ACONDICIONADO|CAMARA|CALEFACTOR|REMODELACION|ANDAMIO|EXTENSION MUEBLE|ESTRUCTURA EXTERIOR|DETECTOR BILLETES|PARLANTE", "clase": "inversion_activo", "categoria": "Activo fijo / remodelación" },
+    { "id": "CONSTITUCION", "patron": "CREACION SRL|CONSTITUCION|\\bSRL\\b|SEPREC|COMISION INMOBILIARIA|COMISION INMOBOLIARIA|RESERVA LOCAL", "clase": "inversion_activo", "categoria": "Gastos de constitución / preoperativos" },
+    { "id": "ALQUILER", "patron": "RENTA|ALQUILER", "clase": "gasto_operativo", "categoria": "Alquiler" },
+    { "id": "COMISIONES", "patron": "COMISION", "clase": "gasto_operativo", "categoria": "Comisiones" },
+    { "id": "SUELDOS", "patron": "SUELDO|SALARIO|QUINCENA|VENDEDOR|ADMINISTRACION|\\bADMIN\\b|BONO|ADELANTO|BENEFICIO|HORAS EXTRA|AGUINALDO", "clase": "gasto_operativo", "categoria": "Sueldos" },
+    { "id": "IMPUESTOS", "patron": "IMPUESTO|\\bIVA\\b|\\bIT\\b|TRAMITE|PERMISO DE FUNCIONAMIENTO|PATENTE", "clase": "gasto_operativo", "categoria": "Impuestos" },
+    { "id": "PUBLICIDAD", "patron": "PAUTA|INFLUENCER|META\\b|PUBLICIDAD|EVENTO|FILMAKER|FILMMAKER|MARKETING|ESTRELLAS|FLORES|ORQUIDEA|PLANTAS", "clase": "gasto_operativo", "categoria": "Publicidad" },
+    { "id": "TRANSPORTE", "patron": "MOVILIZ|ENVIO|TRANS\\b|TRANSPORTE|FLOTA|TICKET|TICKER|PASAJE|VUELO|TAXI|YANGO|DELIVERY|AEREO|CAJAS SCZ", "clase": "gasto_operativo", "categoria": "Transporte" },
+    { "id": "SERVICIOS", "patron": "AGUA|LUZ|ELECTRICIDAD|INTERNET|LINEA|TIGO|ENTEL|SEGURIDAD|MANTENIMIENTO|SEGURO|CONTADOR|LIMPIEZA|INSTALACION", "clase": "gasto_operativo", "categoria": "Servicios" },
+    { "id": "OTROS", "patron": ".*", "clase": "gasto_operativo", "categoria": "Otros" }
+  ]
+}
