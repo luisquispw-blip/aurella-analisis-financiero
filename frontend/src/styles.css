@@ -1,4 +1,8 @@
+/* ================= Tema: claro y nocturno =================
+   Paleta azul pizarra con acentos azul, verde y ámbar. El tema se elige con
+   data-theme en <html> ("light" | "dark"); sin elección, sigue al sistema. */
 :root {
+  /* Marca del desarrollador (solo portada) */
   --navy-900: #0b1a31;
   --navy-800: #0f2340;
   --navy-700: #16305a;
@@ -6,31 +10,51 @@
   --gold-500: #c8912e;
   --gold-400: #d4a94a;
   --gold-100: #f7eedb;
-  --bg: #f3f5f9;
-  --surface: #ffffff;
-  --surface-2: #f8f9fc;
-  --border: #e3e7ef;
-  --text: #16202f;
-  --text-2: #4d5868;
-  --text-3: #7c8697;
-  --series-cbb: #2a5298;
-  --series-lpz: #c8912e;
-  --series-3: #1baf7a;
-  --ok: #1d7f4e;
-  --ok-bg: #e6f4ec;
-  --warn: #9a5b00;
-  --warn-bg: #fdf3e1;
-  --crit: #b42318;
-  --crit-bg: #fdecea;
-  --info: #2a5298;
-  --info-bg: #eaf0fa;
-  --radius: 12px;
-  --shadow: 0 1px 2px rgba(16, 32, 64, 0.04), 0 4px 16px rgba(16, 32, 64, 0.05);
+  --radius: 14px;
   --sidebar: 248px;
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  color: var(--text);
-  background: var(--bg);
   font-size: 14px;
+}
+:root, :root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f6fb; --surface: #ffffff; --surface-2: #f7f9fc; --border: #e2e8f0; --border-strong: #c7d1e0;
+  --text: #0f172a; --text-2: #475569; --text-3: #7a8699;
+  --accent: #3b6ef5; --accent-2: #2f5fd8; --accent-soft: #e8efff; --on-accent: #ffffff;
+  --grid: #edf1f7; --hover: rgba(15, 35, 64, 0.04); --row-hover: #f8fafd; --chip-gris: #eef1f5;
+  --side-bg: #ffffff; --side-border: #e2e8f0; --side-text: #526077; --side-strong: #0f172a; --side-muted: #97a3b6;
+  --side-hover: #f2f5fb; --side-active-bg: #e8efff; --top-bg: rgba(244, 246, 251, 0.88);
+  --series-cbb: #3b6ef5; --series-lpz: #e09a1f; --series-3: #16a36c;
+  --ok: #15803d; --ok-bg: #e5f6ec; --warn: #a35d00; --warn-bg: #fdf2df;
+  --crit: #c0392b; --crit-bg: #fdeceb; --info: #2f5fd8; --info-bg: #e8efff;
+  --shadow: 0 1px 2px rgba(16, 32, 64, 0.04), 0 4px 16px rgba(16, 32, 64, 0.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0a0e17; --surface: #111827; --surface-2: #151d2c; --border: #1f2937; --border-strong: #334155;
+    --text: #e6eaf2; --text-2: #9ba7b9; --text-3: #6b7689;
+    --accent: #4f7df3; --accent-2: #6b92f7; --accent-soft: rgba(79, 125, 243, 0.16); --on-accent: #ffffff;
+    --grid: #1c2535; --hover: rgba(255, 255, 255, 0.04); --row-hover: #162034; --chip-gris: #1e2738;
+    --side-bg: #0d121c; --side-border: #1a2231; --side-text: #9ba7b9; --side-strong: #ffffff; --side-muted: #5b6679;
+    --side-hover: rgba(255, 255, 255, 0.04); --side-active-bg: #1a2438; --top-bg: rgba(10, 14, 23, 0.88);
+    --series-cbb: #4f7df3; --series-lpz: #f5b544; --series-3: #34d399;
+    --ok: #34d399; --ok-bg: rgba(52, 211, 153, 0.13); --warn: #f5b544; --warn-bg: rgba(245, 181, 68, 0.13);
+    --crit: #f87171; --crit-bg: rgba(248, 113, 113, 0.13); --info: #7aa2ff; --info-bg: rgba(79, 125, 243, 0.16);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a0e17; --surface: #111827; --surface-2: #151d2c; --border: #1f2937; --border-strong: #334155;
+  --text: #e6eaf2; --text-2: #9ba7b9; --text-3: #6b7689;
+  --accent: #4f7df3; --accent-2: #6b92f7; --accent-soft: rgba(79, 125, 243, 0.16); --on-accent: #ffffff;
+  --grid: #1c2535; --hover: rgba(255, 255, 255, 0.04); --row-hover: #162034; --chip-gris: #1e2738;
+  --side-bg: #0d121c; --side-border: #1a2231; --side-text: #9ba7b9; --side-strong: #ffffff; --side-muted: #5b6679;
+  --side-hover: rgba(255, 255, 255, 0.04); --side-active-bg: #1a2438; --top-bg: rgba(10, 14, 23, 0.88);
+  --series-cbb: #4f7df3; --series-lpz: #f5b544; --series-3: #34d399;
+  --ok: #34d399; --ok-bg: rgba(52, 211, 153, 0.13); --warn: #f5b544; --warn-bg: rgba(245, 181, 68, 0.13);
+  --crit: #f87171; --crit-bg: rgba(248, 113, 113, 0.13); --info: #7aa2ff; --info-bg: rgba(79, 125, 243, 0.16);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); }
@@ -320,3 +344,89 @@ table.tabla { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 /* Portada: acceso de la empresa sin recuadro */
 .login-box { background: none; border: 0; border-top: 0; box-shadow: none; padding: 10px 6px; }
 .login-hero { border-bottom: 2px solid var(--gold-500); }
+
+/* ================= Tema: componentes (claro / nocturno) ================= */
+body { transition: background 0.2s, color 0.2s; }
+a { color: var(--accent); }
+input, select, textarea { background: var(--surface-2); color: var(--text); border-color: var(--border); }
+
+/* Barra lateral */
+.sidebar { background: var(--side-bg); color: var(--side-text); border-right: 1px solid var(--side-border); }
+.brand { border-bottom-color: var(--side-border); }
+.brand-mark { background: var(--accent); border: 0; color: #fff; border-radius: 10px; width: 36px; height: 36px; font-size: 22px; }
+.brand-name { color: var(--side-strong); font-size: 21px; }
+.brand-sub { color: var(--side-muted); letter-spacing: 1.6px; }
+.nav-group { color: var(--side-muted); }
+.nav a { color: var(--side-text); }
+.nav a:hover { background: var(--side-hover); color: var(--side-strong); }
+.nav a.active { background: var(--side-active-bg); color: var(--side-strong); box-shadow: none; font-weight: 500; }
+.nav a.active svg { color: var(--accent); }
+.sidebar-foot { border-top-color: var(--side-border); }
+.sidebar-foot button { color: var(--crit); }
+.sidebar-foot button:hover { background: var(--side-hover); }
+
+/* Barra superior */
+.topbar { background: var(--top-bg); color: var(--text); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+.topbar .buscar { background: var(--surface); border-color: var(--border); }
+.topbar .buscar input { color: var(--text); }
+.topbar .buscar input::placeholder { color: var(--text-3); }
+.topbar .btn-ghost { color: var(--text); border-color: var(--border); background: var(--surface); }
+.menu-btn { color: var(--text); }
+.avatar { background: var(--accent); color: #fff; }
+.user-box small { color: var(--text-3); }
+.tema-btn { width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); display: grid; place-items: center; cursor: pointer; }
+.tema-btn:hover { color: var(--accent); border-color: var(--accent); }
+.fecha-top { font-size: 12.5px; color: var(--text-2); border: 1px solid var(--border); background: var(--surface); border-radius: 10px; padding: 7px 12px; white-space: nowrap; }
+
+/* Tarjetas, botones y tablas */
+.kpi .t { text-transform: uppercase; letter-spacing: 0.7px; font-size: 11px; color: var(--text-3); }
+.kpi .v { font-size: 24px; }
+.kpi .ico { background: var(--accent-soft); color: var(--accent); }
+.seg button.on { background: var(--accent); color: var(--on-accent); }
+.chip.gris { background: var(--chip-gris); }
+.btn:hover { border-color: var(--border-strong); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+.tabla td { border-bottom-color: var(--grid); }
+.tabla tbody tr:hover td { background: var(--row-hover); }
+.alerta.advertencia { border-left-color: var(--warn); }
+.alerta .rr { color: var(--accent); }
+.formula { background: #0d1424; color: #cfe0ff; }
+.aviso.warn { color: var(--warn); }
+.aviso.info { color: var(--info); }
+.aviso.crit { color: var(--crit); }
+.aviso.ok { color: var(--ok); }
+.tabs button.on { color: var(--accent); border-bottom-color: var(--accent); }
+.tooltip-chart { background: var(--surface); color: var(--text); }
+.dropzone { border-color: var(--border-strong); }
+.dropzone.on { border-color: var(--accent); background: var(--accent-soft); }
+.modal-bg { background: rgba(5, 10, 20, 0.6); }
+
+/* Agente */
+.msg.u { background: var(--accent); color: var(--on-accent); }
+.sugerencias button:hover { border-color: var(--accent); }
+.panel-titulo { color: var(--text); border-bottom-color: var(--accent); }
+.panel-kpi .v { color: var(--text); }
+.panel-bloque { background: var(--surface); }
+.msg.a details.analisis summary { color: var(--accent); }
+.agente-flotante-btn { background: linear-gradient(145deg, #6b92f7, #3b63d9); color: #fff; border: 2px solid rgba(255, 255, 255, 0.35); box-shadow: 0 10px 28px rgba(59, 99, 217, 0.4); }
+.agente-flotante-btn.on { background: var(--surface); color: var(--text); border-color: var(--border); }
+.agente-flotante-pulso { border-color: var(--accent); }
+.agente-flotante-head { background: var(--surface-2); color: var(--text); border-bottom: 1px solid var(--border); }
+.agente-flotante-head svg { color: var(--accent); }
+.agente-flotante-head button { color: var(--text-2); }
+.agente-flotante-head button:hover { color: var(--text); background: var(--hover); }
+
+/* Portada: lado de acceso de la empresa (el lado del desarrollador conserva su marca) */
+.portada { background: var(--bg); }
+.portada-login { position: relative; background: radial-gradient(ellipse at 70% 10%, var(--accent-soft) 0%, var(--bg) 55%); }
+.login-hero { border-bottom-color: var(--accent); }
+.login-hero .n { color: var(--text); }
+.login-hero .s { color: var(--accent); }
+.login-box .campo { background: var(--surface); }
+.login-box .campo:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.login-box .campo input { color: var(--text); }
+.login-box .btn.primary { background: var(--accent); }
+.login-box .btn.primary:hover { background: var(--accent-2); }
+.portada-login .tema-btn { position: absolute; top: 18px; right: 18px; }
+@media (max-width: 900px) { .fecha-top { display: none; } }

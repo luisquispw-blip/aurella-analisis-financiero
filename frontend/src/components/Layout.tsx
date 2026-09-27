@@ -8,6 +8,7 @@ import {
 import { useApp } from '../lib/contexto';
 import { api } from '../lib/api';
 import AgenteFlotante from './AgenteFlotante';
+import { BotonTema } from '../lib/tema';
 
 const MENU: { grupo: string; items: { to: string; t: string; i: ReactNode; rol?: 'analista' | 'admin' }[] }[] = [
   { grupo: 'Análisis', items: [
@@ -73,10 +74,12 @@ export default function Layout({ children }: { children: ReactNode }) {
         <header className="topbar">
           <button className="menu-btn" onClick={() => setAbierto(true)} aria-label="Menú"><Menu size={22} /></button>
           <form className="buscar" onSubmit={buscar}>
-            <Search size={16} color="#9fb0c9" />
+            <Search size={16} color="var(--text-3)" />
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Pregunte al agente: ¿cuánto vendimos en julio?, ¿qué información falta?…" />
           </form>
           <div className="acciones">
+            <span className="fecha-top">{new Date().toLocaleDateString('es-BO', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' })}</span>
+            <BotonTema />
             <button className="btn sm btn-ghost" onClick={tocar} title="Recalcular con los datos más recientes"><RefreshCw size={14} /> Actualizar</button>
             <div className="user-box">
               <div className="avatar">{iniciales}</div>

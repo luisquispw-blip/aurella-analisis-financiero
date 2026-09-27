@@ -90,7 +90,7 @@ export default function Carga() {
       {resultado && (
         <Card titulo="Resultado del procesamiento" style={{ marginBottom: 16 }}>
           {resultado.map((r, i) => (
-            <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid #eef1f6' }}>
+            <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid var(--grid)' }}>
               <b>{r.nombre}</b> <EstadoChip e={r.estado} /> <span className="small">{r.mensaje}</span>
               {r.archivo_id > 0 && <button className="btn sm" style={{ marginLeft: 8 }} onClick={() => setSel(r.archivo_id)}>Ver detalle <ChevronRight size={13} /></button>}
             </div>

@@ -44,7 +44,7 @@ export default function Comparativo() {
             <Card titulo="Margen operativo %"><SerieEst datos={serie} metrica="margen_operativo" tipo="lineas" formato="pc" /></Card>
           </div>
           <div className="grid g2" style={{ marginBottom: 16 }}>
-            {['CBB', 'LPZ'].map((e) => <Card key={e} titulo={`Top productos · ${NOMBRE_EST[e]}`}><BarrasH filas={data.top_por_est[e]} clave="producto" valor="ventas" color={e === 'CBB' ? '#2a5298' : '#c8912e'} /></Card>)}
+            {['CBB', 'LPZ'].map((e) => <Card key={e} titulo={`Top productos · ${NOMBRE_EST[e]}`}><BarrasH filas={data.top_por_est[e]} clave="producto" valor="ventas" color={e === 'CBB' ? 'var(--series-cbb)' : 'var(--series-lpz)'} /></Card>)}
           </div>
           <Aviso tipo="info">Rotación e inventario por establecimiento requieren inventarios en unidades (no proporcionados). La liquidez por establecimiento se limita al fondo de caja en tienda mientras no se registren los saldos bancarios.</Aviso>
           {[...data.tabla].reverse().map((t: any) => (

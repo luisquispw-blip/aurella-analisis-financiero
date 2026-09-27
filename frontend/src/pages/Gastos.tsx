@@ -8,7 +8,7 @@ import { api } from '../lib/api';
 import { bs, ejeBs, mesCorto, pc } from '../lib/formato';
 
 // Colores categóricos en orden fijo (validados): 8 categorías de gasto
-const COLORES = ['#2a5298', '#c8912e', '#1baf7a', '#e87ba4', '#4a3aa7', '#eb6834', '#6b8fd6', '#9a7b3c'];
+const COLORES = ['var(--series-cbb)', 'var(--series-lpz)', 'var(--series-3)', '#e87ba4', '#8b7cf6', '#f08a4b', '#6b8fd6', '#b08d57'];
 
 export default function Gastos() {
   const { query, meta, puede, tocar } = useApp();
@@ -40,12 +40,12 @@ export default function Gastos() {
             <Card titulo="Gasto por categoría y mes">
               <ResponsiveContainer width="100%" height={290}>
                 <BarChart data={serie} barCategoryGap="28%">
-                  <CartesianGrid stroke="#eef1f6" vertical={false} />
-                  <XAxis dataKey="nombre" tick={{ fontSize: 11, fill: '#7c8697' }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11, fill: '#7c8697' }} tickFormatter={ejeBs} axisLine={false} tickLine={false} width={48} />
+                  <CartesianGrid stroke="var(--grid)" vertical={false} />
+                  <XAxis dataKey="nombre" tick={{ fontSize: 11, fill: 'var(--text-3)' }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: 'var(--text-3)' }} tickFormatter={ejeBs} axisLine={false} tickLine={false} width={48} />
                   <Tooltip content={<TooltipChart />} />
                   <Legend iconType="square" iconSize={9} wrapperStyle={{ fontSize: 11.5 }} />
-                  {cats.slice(0, 8).map((c: string, i: number) => <Bar key={c} dataKey={c} stackId="g" fill={COLORES[i]} stroke="#fff" strokeWidth={1} maxBarSize={36} />)}
+                  {cats.slice(0, 8).map((c: string, i: number) => <Bar key={c} dataKey={c} stackId="g" fill={COLORES[i]} stroke="var(--surface)" strokeWidth={1} maxBarSize={36} />)}
                 </BarChart>
               </ResponsiveContainer>
             </Card>
@@ -57,7 +57,7 @@ export default function Gastos() {
             </Card>
           </div>
           <div className="grid g2" style={{ marginBottom: 16 }}>
-            <Card titulo="Categorías con mayor impacto"><BarrasH filas={data.por_categoria} clave="categoria" valor="total" color="#c8912e" /></Card>
+            <Card titulo="Categorías con mayor impacto"><BarrasH filas={data.por_categoria} clave="categoria" valor="total" color="var(--series-lpz)" /></Card>
             <Card titulo="Gastos individuales más grandes">
               <Tabla buscar={false} alto={330} filas={data.mayores} columnas={[{ k: 'est', t: 'Est.' }, { k: 'periodo', t: 'Periodo' }, { k: 'descripcion', t: 'Descripción' }, { k: 'categoria', t: 'Categoría' }, { k: 'monto_bob', t: 'Monto', r: true, f: (x) => bs(x) }]} />
             </Card>

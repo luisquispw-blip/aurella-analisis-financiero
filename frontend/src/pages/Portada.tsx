@@ -3,6 +3,7 @@ import { Lock, User, Eye, EyeOff, LogIn, ShieldCheck, Mail, MessageCircle, MapPi
 import { api } from '../lib/api';
 import { useApp } from '../lib/contexto';
 import Perfume from '../components/Perfume';
+import { BotonTema } from '../lib/tema';
 
 // Portada: a la izquierda los datos y el logo del desarrollador (solo aquí), a la derecha las credenciales de acceso.
 export default function Portada() {
@@ -51,6 +52,7 @@ export default function Portada() {
       </section>
 
       <section className="portada-login">
+        <BotonTema />
         <form className="login-box" onSubmit={entrar}>
           <div className="login-hero">
             <Perfume ancho={120} />
@@ -63,12 +65,12 @@ export default function Portada() {
           <h1>Acceso al sistema</h1>
           <p className="desc">Análisis financiero y económico · Cochabamba (casa matriz) y La Paz (sucursal)</p>
           <label htmlFor="u">Usuario</label>
-          <div className="campo"><User size={17} color="#7c8697" /><input id="u" autoComplete="username" value={usuario} onChange={(e) => setU(e.target.value)} placeholder="Ingrese su usuario" autoFocus /></div>
+          <div className="campo"><User size={17} color="var(--text-3)" /><input id="u" autoComplete="username" value={usuario} onChange={(e) => setU(e.target.value)} placeholder="Ingrese su usuario" autoFocus /></div>
           <label htmlFor="p">Contraseña</label>
           <div className="campo">
-            <Lock size={17} color="#7c8697" />
+            <Lock size={17} color="var(--text-3)" />
             <input id="p" type={ver ? 'text' : 'password'} autoComplete="current-password" value={password} onChange={(e) => setP(e.target.value)} placeholder="Ingrese su contraseña" />
-            <button type="button" onClick={() => setVer(!ver)} style={{ border: 0, background: 'none', cursor: 'pointer', color: '#7c8697' }} aria-label="Mostrar contraseña">{ver ? <EyeOff size={17} /> : <Eye size={17} />}</button>
+            <button type="button" onClick={() => setVer(!ver)} style={{ border: 0, background: 'none', cursor: 'pointer', color: 'var(--text-3)' }} aria-label="Mostrar contraseña">{ver ? <EyeOff size={17} /> : <Eye size={17} />}</button>
           </div>
           {error && <div className="aviso crit error">{error}</div>}
           <button className="btn primary" disabled={enviando || !usuario || !password}><LogIn size={17} /> {enviando ? 'Verificando…' : 'Ingresar'}</button>

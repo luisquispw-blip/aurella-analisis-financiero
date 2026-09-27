@@ -58,14 +58,14 @@ export default function Financiero() {
             <Card titulo="Flujo neto registrado y fondo de caja" sub="aproximación de caja con los egresos registrados">
               <ResponsiveContainer width="100%" height={260}>
                 <LineChart data={l.serie.map((x: any) => ({ nombre: mesCorto(x.periodo), flujo: x.flujo_neto, fondo: x.fondo_caja }))}>
-                  <CartesianGrid stroke="#eef1f6" vertical={false} />
-                  <XAxis dataKey="nombre" tick={{ fontSize: 11, fill: '#7c8697' }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11, fill: '#7c8697' }} tickFormatter={ejeBs} axisLine={false} tickLine={false} width={50} />
-                  <ReferenceLine y={0} stroke="#b0b8c6" />
+                  <CartesianGrid stroke="var(--grid)" vertical={false} />
+                  <XAxis dataKey="nombre" tick={{ fontSize: 11, fill: 'var(--text-3)' }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: 'var(--text-3)' }} tickFormatter={ejeBs} axisLine={false} tickLine={false} width={50} />
+                  <ReferenceLine y={0} stroke="var(--border-strong)" />
                   <Tooltip content={<TooltipChart />} />
                   <Legend wrapperStyle={{ fontSize: 12 }} iconType="plainline" />
-                  <Line dataKey="flujo" name="Flujo neto registrado" stroke="#2a5298" strokeWidth={2} dot={{ r: 4, fill: '#fff', strokeWidth: 2 }} />
-                  <Line dataKey="fondo" name="Fondo de caja (efectivo)" stroke="#c8912e" strokeWidth={2} dot={{ r: 4, fill: '#fff', strokeWidth: 2 }} />
+                  <Line dataKey="flujo" name="Flujo neto registrado" stroke="var(--series-cbb)" strokeWidth={2} dot={{ r: 4, fill: 'var(--surface)', strokeWidth: 2 }} />
+                  <Line dataKey="fondo" name="Fondo de caja (efectivo)" stroke="var(--series-lpz)" strokeWidth={2} dot={{ r: 4, fill: 'var(--surface)', strokeWidth: 2 }} />
                 </LineChart>
               </ResponsiveContainer>
               <p className="small muted">Flujo = ventas − gastos operativos − pagos de mercadería − inversiones pagadas con fondos de la operación. No incluye la inversión inicial de socios ni saldos bancarios.</p>

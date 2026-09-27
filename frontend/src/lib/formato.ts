@@ -15,7 +15,7 @@ export const ejeBs = (n: number) => (Math.abs(n) >= 1000 ? `${(n / 1000).toLocal
 
 export const NOMBRE_EST: Record<string, string> = { CBB: 'Cochabamba', LPZ: 'La Paz', TOTAL: 'Total empresa' };
 export const COLOR_EST: Record<string, string> = { CBB: 'var(--series-cbb)', LPZ: 'var(--series-lpz)', TOTAL: 'var(--series-3)' };
-export const HEX_EST: Record<string, string> = { CBB: '#2a5298', LPZ: '#c8912e', TOTAL: '#1baf7a' };
+export const HEX_EST: Record<string, string> = { CBB: 'var(--series-cbb)', LPZ: 'var(--series-lpz)', TOTAL: 'var(--series-3)' };
 
 const MESES = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 export const mesCorto = (p: string) => `${MESES[Number(p.slice(5, 7))]} ${p.slice(2, 4)}`;

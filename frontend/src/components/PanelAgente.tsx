@@ -55,10 +55,10 @@ export default function PanelAgente({ p }: { p: Panel }) {
                 : (
                   <ResponsiveContainer width="100%" height={230}>
                     <BarChart data={g.datos} barCategoryGap="25%">
-                      <CartesianGrid stroke="#eef1f6" vertical={false} />
-                      <XAxis dataKey="nombre" tick={{ fontSize: 10.5, fill: '#7c8697' }} axisLine={false} tickLine={false} />
-                      <YAxis tick={{ fontSize: 10.5, fill: '#7c8697' }} tickFormatter={g.formato === 'pc' ? (v: number) => `${v}%` : ejeBs} axisLine={false} tickLine={false} width={46} />
-                      <Tooltip content={<TooltipChart formato={g.formato} />} cursor={{ fill: 'rgba(15,35,64,0.04)' }} />
+                      <CartesianGrid stroke="var(--grid)" vertical={false} />
+                      <XAxis dataKey="nombre" tick={{ fontSize: 10.5, fill: 'var(--text-3)' }} axisLine={false} tickLine={false} />
+                      <YAxis tick={{ fontSize: 10.5, fill: 'var(--text-3)' }} tickFormatter={g.formato === 'pc' ? (v: number) => `${v}%` : ejeBs} axisLine={false} tickLine={false} width={46} />
+                      <Tooltip content={<TooltipChart formato={g.formato} />} cursor={{ fill: 'var(--hover)' }} />
                       {g.series.length > 1 && <Legend iconType="square" iconSize={9} wrapperStyle={{ fontSize: 11 }} />}
                       {g.series.map((s) => <Bar key={s.clave} dataKey={s.clave} name={s.nombre} fill={s.color} radius={[4, 4, 0, 0]} maxBarSize={30} />)}
                     </BarChart>

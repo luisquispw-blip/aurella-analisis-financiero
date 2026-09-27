@@ -23,7 +23,7 @@ export default function Rankings() {
       {cargando && !data && <Cargando />}
       {data && (!data.disponible ? <Aviso tipo="warn">{data.titulo}: {data.motivo}</Aviso> : (
         <div className="grid g2">
-          <Card titulo={data.titulo} sub={data.nota ?? ''}><BarrasH filas={data.filas} clave="producto" valor={CAMPO[criterio]} formato={FORM[criterio]} color={criterio === 'caida' ? '#b42318' : criterio === 'margen' || criterio === 'utilidad' ? '#1baf7a' : '#2a5298'} max={20} /></Card>
+          <Card titulo={data.titulo} sub={data.nota ?? ''}><BarrasH filas={data.filas} clave="producto" valor={CAMPO[criterio]} formato={FORM[criterio]} color={criterio === 'caida' ? 'var(--crit)' : criterio === 'margen' || criterio === 'utilidad' ? 'var(--series-3)' : 'var(--series-cbb)'} max={20} /></Card>
           <Card titulo="Detalle">
             <Tabla filas={data.filas} nombreCsv={`ranking_${criterio}.csv`} alto={640} columnas={[
               { k: 'producto', t: 'Producto' }, { k: 'marca', t: 'Marca' }, { k: 'unidades', t: 'Unid.', r: true, f: (v) => num(v) }, { k: 'ventas', t: 'Ventas', r: true, f: (v) => bs(v, 0) },

@@ -2,8 +2,8 @@ import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContai
 import { TooltipChart } from './ui';
 import { HEX_EST, NOMBRE_EST, ejeBs, mesCorto, num, pc, bs } from '../lib/formato';
 
-const EJE = { fontSize: 11, fill: '#7c8697' };
-const GRID = <CartesianGrid stroke="#eef1f6" vertical={false} />;
+const EJE = { fontSize: 11, fill: 'var(--text-3)' };
+const GRID = <CartesianGrid stroke="var(--grid)" vertical={false} />;
 
 // Serie mensual por establecimiento. `datos` = [{periodo, nombre, [metrica_EST]: V}]
 export function SerieEst({ datos, metrica, tipo = 'barras', ests = ['CBB', 'LPZ'], apilado = false, formato = 'bs', alto = 260 }: {
@@ -21,11 +21,11 @@ export function SerieEst({ datos, metrica, tipo = 'barras', ests = ['CBB', 'LPZ'
           {GRID}
           <XAxis dataKey="corto" tick={EJE} axisLine={false} tickLine={false} />
           <YAxis tick={EJE} axisLine={false} tickLine={false} tickFormatter={fEje} width={48} />
-          <Tooltip content={<TooltipChart formato={formato} />} cursor={{ fill: 'rgba(15,35,64,0.04)' }} />
+          <Tooltip content={<TooltipChart formato={formato} />} cursor={{ fill: 'var(--hover)' }} />
           <Legend iconType="square" iconSize={9} wrapperStyle={{ fontSize: 12 }} />
           {ests.map((e, i) => (
             <Bar key={e} dataKey={e} name={NOMBRE_EST[e]} fill={HEX_EST[e]} stackId={apilado ? 'a' : undefined} maxBarSize={34}
-              radius={apilado ? (i === ests.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]) : [4, 4, 0, 0]} stroke="#fff" strokeWidth={apilado ? 1 : 0} />
+              radius={apilado ? (i === ests.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]) : [4, 4, 0, 0]} stroke="var(--surface)" strokeWidth={apilado ? 1 : 0} />
           ))}
         </BarChart>
       ) : (
@@ -35,7 +35,7 @@ export function SerieEst({ datos, metrica, tipo = 'barras', ests = ['CBB', 'LPZ'
           <YAxis tick={EJE} axisLine={false} tickLine={false} tickFormatter={fEje} width={48} />
           <Tooltip content={<TooltipChart formato={formato} />} />
           <Legend iconType="plainline" wrapperStyle={{ fontSize: 12 }} />
-          {ests.map((e) => <Line key={e} type="monotone" dataKey={e} name={NOMBRE_EST[e]} stroke={HEX_EST[e]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, fill: '#fff' }} activeDot={{ r: 5 }} connectNulls={false} />)}
+          {ests.map((e) => <Line key={e} type="monotone" dataKey={e} name={NOMBRE_EST[e]} stroke={HEX_EST[e]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, fill: 'var(--surface)' }} activeDot={{ r: 5 }} connectNulls={false} />)}
         </LineChart>
       )}
     </ResponsiveContainer>
@@ -43,7 +43,7 @@ export function SerieEst({ datos, metrica, tipo = 'barras', ests = ['CBB', 'LPZ'
 }
 
 // Barras horizontales (una sola serie): rankings, gastos por categoría, márgenes
-export function BarrasH({ filas, clave, valor, formato = 'bs', color = '#2a5298', alto, max = 10 }: {
+export function BarrasH({ filas, clave, valor, formato = 'bs', color = 'var(--series-cbb)', alto, max = 10 }: {
   filas: any[]; clave: string; valor: string; formato?: 'bs' | 'pc' | 'num'; color?: string; alto?: number; max?: number;
 }) {
   const data = filas.slice(0, max).map((f) => ({ nombre: String(f[clave]), v: f[valor] }));
@@ -53,10 +53,10 @@ export function BarrasH({ filas, clave, valor, formato = 'bs', color = '#2a5298'
     <ResponsiveContainer width="100%" height={alto ?? Math.max(160, data.length * 30 + 20)}>
       <BarChart data={data} layout="vertical" margin={{ left: 4, right: 70 }} barCategoryGap="22%">
         <XAxis type="number" hide />
-        <YAxis type="category" dataKey="nombre" tick={{ fontSize: 11.5, fill: '#4d5868' }} width={ancho} axisLine={false} tickLine={false} />
-        <Tooltip content={({ active, payload }: any) => active && payload?.length ? <div className="tooltip-chart"><b>{payload[0].payload.nombre}</b><div className="num">{fmt(payload[0].value)}</div></div> : null} cursor={{ fill: 'rgba(15,35,64,0.04)' }} />
-        <Bar dataKey="v" radius={[0, 4, 4, 0]} maxBarSize={18} label={{ position: 'right', fontSize: 11, fill: '#4d5868', formatter: (v: number) => fmt(v) }}>
-          {data.map((d, i) => <Cell key={i} fill={d.v < 0 ? '#b42318' : color} />)}
+        <YAxis type="category" dataKey="nombre" tick={{ fontSize: 11.5, fill: 'var(--text-2)' }} width={ancho} axisLine={false} tickLine={false} />
+        <Tooltip content={({ active, payload }: any) => active && payload?.length ? <div className="tooltip-chart"><b>{payload[0].payload.nombre}</b><div className="num">{fmt(payload[0].value)}</div></div> : null} cursor={{ fill: 'var(--hover)' }} />
+        <Bar dataKey="v" radius={[0, 4, 4, 0]} maxBarSize={18} label={{ position: 'right', fontSize: 11, fill: 'var(--text-2)', formatter: (v: number) => fmt(v) }}>
+          {data.map((d, i) => <Cell key={i} fill={d.v < 0 ? 'var(--crit)' : color} />)}
         </Bar>
       </BarChart>
     </ResponsiveContainer>

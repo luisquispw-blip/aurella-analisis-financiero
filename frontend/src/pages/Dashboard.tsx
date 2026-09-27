@@ -51,10 +51,10 @@ export default function Dashboard() {
           </div>
 
           <div className="grid g3" style={{ marginBottom: 16 }}>
-            <Card titulo="Gastos operativos por categoría"><BarrasH filas={data.gastos_categoria} clave="categoria" valor="total" color="#c8912e" /></Card>
+            <Card titulo="Gastos operativos por categoría"><BarrasH filas={data.gastos_categoria} clave="categoria" valor="total" color="var(--series-lpz)" /></Card>
             <Card titulo="Ranking de productos" sub="por ventas netas"><BarrasH filas={data.top_productos} clave="producto" valor="ventas" /></Card>
             <Card titulo="Margen bruto por producto" sub={data.margen_productos.nota ?? ''}>
-              {data.margen_productos.disponible ? <BarrasH filas={data.margen_productos.filas} clave="producto" valor="margen" formato="pc" color="#1baf7a" /> : <Aviso tipo="warn">{data.margen_productos.motivo}</Aviso>}
+              {data.margen_productos.disponible ? <BarrasH filas={data.margen_productos.filas} clave="producto" valor="margen" formato="pc" color="var(--series-3)" /> : <Aviso tipo="warn">{data.margen_productos.motivo}</Aviso>}
             </Card>
           </div>
 
@@ -64,7 +64,7 @@ export default function Dashboard() {
                 ? <SerieEst datos={data.serie} metrica="inv_final_teorico" formato="num" />
                 : <Aviso tipo="warn">No se puede graficar: no se proporcionaron inventarios ni movimientos en unidades. <Link to="/calidad">Ver qué datos faltan →</Link></Aviso>}
               <h3 style={{ marginTop: 16 }}><FileWarning size={16} /> Datos faltantes prioritarios</h3>
-              {data.faltantes.map((f: any) => <div key={f.id} className="small" style={{ padding: '6px 0', borderBottom: '1px solid #eef1f6' }}><EstadoChip e={f.prioridad} /> {f.dato}</div>)}
+              {data.faltantes.map((f: any) => <div key={f.id} className="small" style={{ padding: '6px 0', borderBottom: '1px solid var(--grid)' }}><EstadoChip e={f.prioridad} /> {f.dato}</div>)}
               <div style={{ marginTop: 10 }}><Link to="/calidad" className="small">Ver todos y proporcionar datos →</Link></div>
             </Card>
             <Card titulo="Alertas más importantes" acciones={<Link to="/alertas" className="small">Ver todas →</Link>}>
