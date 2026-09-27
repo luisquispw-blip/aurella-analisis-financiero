@@ -33,7 +33,7 @@ export default function Rentabilidad() {
             </Card>
             <Card titulo="Productos con mayor utilidad bruta"><BarrasH filas={[...prods].filter((p: any) => p.utilidad !== null).sort((a: any, b: any) => b.utilidad - a.utilidad)} clave="producto" valor="utilidad" color="#1baf7a" /></Card>
           </div>
-          <Card titulo="Rentabilidad por producto" sub="productos con alguna venta sin costo registrado muestran N/D">
+          <Card titulo="Rentabilidad por producto" sub="parcial = utilidad calculada solo con las ventas que tienen costo registrado">
             <Tabla filas={prods} alto={560} nombreCsv="rentabilidad_productos.csv" columnas={[
               { k: 'producto', t: 'Producto', ancho: 180 }, { k: 'marca', t: 'Marca' }, { k: 'unidades', t: 'Unid.', r: true, f: (x) => num(x) },
               { k: 'ventas', t: 'Ventas netas', r: true, f: (x) => bs(x) }, { k: 'costo', t: 'Costo', r: true, f: (x) => bs(x) },

@@ -497,8 +497,9 @@ export function porProducto(d: Datos, f: Filtro): FilaProducto[] {
     res.push({
       clave: k, producto_id: vs[0].producto_id, producto: vs[0].producto, marca: vs[0].marca, categoria: vs[0].categoria,
       unidades: a.unidades, ventas: redondear(a.ventas_netas), costo: redondear(a.costo),
-      utilidad: completo ? redondear(a.ventas_netas - a.costo) : null,
-      margen: completo && a.ventas_netas ? redondear(((a.ventas_netas - a.costo) / a.ventas_netas) * 100) : null,
+      // si alguna línea no tiene costo, la utilidad y el margen se calculan SOLO con las ventas costeadas (marcado como parcial)
+      utilidad: a.ventas_costeadas ? redondear(a.ventas_costeadas - a.costo) : null,
+      margen: a.ventas_costeadas ? redondear(((a.ventas_costeadas - a.costo) / a.ventas_costeadas) * 100) : null,
       costo_completo: completo, participacion: total ? redondear((a.ventas_netas / total) * 100, 3) : 0, meses_con_venta: meses,
       velocidad: ps.length ? redondear(a.unidades / ps.length) : 0, ventas_ult: redondear(vu), ventas_ant: redondear(va),
       crecimiento: ant && va ? redondear(((vu - va) / va) * 100) : null, precio_promedio: a.unidades ? redondear(a.ventas_netas / a.unidades) : null,
@@ -559,8 +560,8 @@ export function ranking(d: Datos, f: Filtro, criterio: string, n = 15) {
   if (criterio === 'margen') filas = filas.filter((p) => p.unidades >= MIN_UNIDADES_MARGEN);
   filas.sort((a, b) => (c.asc ? 1 : -1) * (((a[c.campo] as number) ?? 0) - ((b[c.campo] as number) ?? 0)));
   const nota = criterio === 'rotacion' ? 'Rotación real (ventas ÷ inventario promedio) requiere inventarios; se muestra la velocidad de venta como aproximación.'
-    : criterio === 'margen' ? `Solo productos con todas sus ventas costeadas y al menos ${MIN_UNIDADES_MARGEN} unidades vendidas.`
-      : c.requiere === 'costo' ? 'Solo productos con todas sus ventas costeadas.' : null;
+    : criterio === 'margen' ? `Productos con al menos ${MIN_UNIDADES_MARGEN} unidades vendidas. "Parcial" = calculado solo con las ventas que tienen costo registrado.`
+      : c.requiere === 'costo' ? '"Parcial" = calculado solo con las ventas que tienen costo registrado.' : null;
   return { criterio, titulo: c.titulo, disponible: true, nota, filas: filas.slice(0, n) };
 }
 
